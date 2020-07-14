@@ -2,7 +2,16 @@
 var generateBtn = document.querySelector("#generate");
 
 
+  //How many characters
 
+  var slider = document.getElementById("formControlRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+  slider.oninput = function() {
+  output.innerHTML = this.value;
+}
 
 function generatePassword() {
 
@@ -31,8 +40,8 @@ function generatePassword() {
 
   //the changing array
   let allChars = [];
-  
 
+ 
   //Concat The arrays
 
   if(checkBox.checked){
@@ -48,40 +57,21 @@ function generatePassword() {
     allChars = allChars.concat(lowerLetters);
   }
 
-  // if(checkBox.checked && checkBox2.checked){
-  //   let specialNum = specialChars.concat(numbers);
-  //   console.log("Yay!");
-  //  }
-  // else{
-  //   console.log("Oh No!");
-  // }
-  // if(checkBox2.checked && checkBox3.checked){
-  //   let upperNum = numbers.concat(upperLetters);
-  //   console.log("Yay!");
-  // }
-  // else{
-  //   console.log("Oh No!");
-  // }
-  // if(checkBox3.checked && checkBox4.checked){
-  //   let upperLower = upperLetters.concat(lowerLetters);
-  //   console.log("Yay!");
-  //  }
-  // else{
-  //   console.log("Oh No!");
-  // }
-  // if(checkBox4.checked){
-  //   console.log("Yay!");
-  // }
-  // else{
-  //   console.log("Oh No!");
-  // }
+  //display results
+
+  for(let i=0; i < slider.value; i++){
+    let genPass = allChars[Math.floor(Math.random() * allChars.length)];
+    
+  }
+
+  console.log(genPass);
 
 
-console.log(upperLetters[0]);
+// console.log(upperLetters[0]);
 
-var passwordValue = upperLetters.concat(lowerLetters);
+// var passwordValue = upperLetters.concat(lowerLetters);
 
-console.log(passwordValue);
+// console.log(passwordValue);
   
 }
 
