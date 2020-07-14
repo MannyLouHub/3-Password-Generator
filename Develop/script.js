@@ -5,6 +5,9 @@ var generateBtn = document.querySelector("#generate");
 
 
 function generatePassword() {
+
+  //The Password Value
+  let passValue = [];
   
   //Check the Checkedbox. 
   var checkBox = document.getElementById('inlineCheckbox1');
@@ -19,40 +22,59 @@ function generatePassword() {
   var checkBox4 = document.getElementById('inlineCheckbox4');
       console.log(checkBox4.checked);
   
-  //Password Vaules 
+  //Password Values 
     var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "_", "=", ",", "<", ">", ".", "?", "/", ";", ":", "[", "]", "{", "}"];
     var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
     var upperLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    var lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", 
+    "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+  //the changing array
+  let allChars = [];
   
 
   //Concat The arrays
 
   if(checkBox.checked){
-    console.log("Yay!");
-   }
-  else{
-    console.log("Oh No!");
+    allChars = allChars.concat(specialChars);
   }
-  if(checkBox2.checked){
-    console.log("Yay!");
-  }
-  else{
-    console.log("Oh No!");
+  if (checkBox2.checked) {
+    allChars = allChars.concat(numbers);
   }
   if(checkBox3.checked){
-    console.log("Yay!");
-   }
-  else{
-    console.log("Oh No!");
+    allChars = allChars.concat(upperLetters);
   }
-  if(checkBox4.checked){
-    console.log("Yay!");
+  if (checkBox4.checked) {
+    allChars = allChars.concat(lowerLetters);
   }
-  else{
-    console.log("Oh No!");
-  }
+
+  // if(checkBox.checked && checkBox2.checked){
+  //   let specialNum = specialChars.concat(numbers);
+  //   console.log("Yay!");
+  //  }
+  // else{
+  //   console.log("Oh No!");
+  // }
+  // if(checkBox2.checked && checkBox3.checked){
+  //   let upperNum = numbers.concat(upperLetters);
+  //   console.log("Yay!");
+  // }
+  // else{
+  //   console.log("Oh No!");
+  // }
+  // if(checkBox3.checked && checkBox4.checked){
+  //   let upperLower = upperLetters.concat(lowerLetters);
+  //   console.log("Yay!");
+  //  }
+  // else{
+  //   console.log("Oh No!");
+  // }
+  // if(checkBox4.checked){
+  //   console.log("Yay!");
+  // }
+  // else{
+  //   console.log("Oh No!");
+  // }
 
 
 console.log(upperLetters[0]);
