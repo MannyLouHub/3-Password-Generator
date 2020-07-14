@@ -59,20 +59,17 @@ function generatePassword() {
 
   //display results
 
+  let genPass= "";
+
   for(let i=0; i < slider.value; i++){
-    let genPass = allChars[Math.floor(Math.random() * allChars.length)];
+    genPass += allChars[Math.floor(Math.random() * allChars.length)];
+    console.log(genPass);
     
   }
 
-  console.log(genPass);
-
-
-// console.log(upperLetters[0]);
-
-// var passwordValue = upperLetters.concat(lowerLetters);
-
-// console.log(passwordValue);
   
+ 
+ return genPass
 }
 
 // Write password to the #password input
