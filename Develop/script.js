@@ -32,12 +32,14 @@ function generatePassword() {
   console.log(checkBox4.checked);
 
   //Password Values 
-  var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "_", "=", ",", "<", ">", ".", "?", "/", ";", ":", "[", "]", "{", "}"];
-  var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-  var upperLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  var lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q",
-    "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+
+  var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "_", "=", ",", "<", ">", ".", "?", "/", ";", ":", "[", "]", "{", "}"];
+  var numbers = [..."1234567890"];
+  var letters = "abcdefghijklmnopqrstuvwxyz"
+  var lowerLetters = [...letters];
+  var upperLetters = [...letters.toUpperCase()];
+  
   //the changing array
   let allChars = [];
 
@@ -57,6 +59,13 @@ function generatePassword() {
     allChars = allChars.concat(lowerLetters);
   }
 
+  //Making sure value is checked 
+
+  if (allChars.length === 0) {
+    alert("You must select a Password Criteria")
+    return;
+  }
+
   //display results
 
   let genPass = "";
@@ -64,24 +73,12 @@ function generatePassword() {
   for (let i = 0; i < slider.value; i++) {
     genPass += allChars[Math.floor(Math.random() * allChars.length)];
     console.log(genPass);
-
   }
 
-
-
-  return genPass
-}
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  passwordText.value = genPass;
 }
-
-
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
